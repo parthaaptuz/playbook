@@ -1,4 +1,0 @@
----
-
-- name: Create local server dir
-  file: path=/etc/sysconfig state=directory
