@@ -1,0 +1,2 @@
+[wordpress-server]
+IP_ADDR ansible_ssh_private_key_file=~/aptuz_org.pem ansible_ssh_user=ubuntu

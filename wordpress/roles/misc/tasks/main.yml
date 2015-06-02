@@ -1,0 +1,4 @@
+---
+
+- name: Create local server dir
+  file: path=/home/ubuntu/myserver state=directory

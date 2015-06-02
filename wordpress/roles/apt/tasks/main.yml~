@@ -1,0 +1,7 @@
+---
+
+- name: apt-get update the server
+  apt: update_cache=yes
+
+- name: apt-get update the server
+  apt: name=debconf-utils state=present
