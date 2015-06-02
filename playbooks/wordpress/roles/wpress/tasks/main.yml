@@ -1,0 +1,31 @@
+---
+
+- name: download wordpress
+  command: wget http://wordpress.org/latest.tar.gz -P /home/ubuntu 
+
+- name: extract wordpress
+  unarchive: src=/home/ubuntu/latest.tar.gz dest=/home/ubuntu copy=no owner=root mode=0644
+
+- name: chown wordpress
+  command: sudo chown -hR root:root /home/ubuntu/wordpress
+
+- name: chmod wordpress
+  command: chmod -R u+rw /home/ubuntu/wordpress
+
+- name: copy wordpress php files
+  command: cp /home/ubuntu/wordpress/wp-config-sample.php /home/ubuntu/wordpress/wp-config.php
+
+- name: configure wordpress
+  command: sed -i 's/database_name_here/'"{{ db_name }}"'/g' /home/ubuntu/wordpress/wp-config.php
+
+- name: configure wordpress
+  command: sed -i 's/username_here/'"{{ db_user }}"'/g' /home/ubuntu/wordpress/wp-config.php
+
+- name: configure wordpress
+  command: sed -i 's/password_here/'"{{ db_password }}"'/g' /home/ubuntu/wordpress/wp-config.php
+
+- name: move wordpress files to server dir
+  command: sudo mv /home/ubuntu/wordpress /home/ubuntu/myserver
+
+- name: chmod wordpress
+  command: sudo chmod -R 755 /home/ubuntu/myserver

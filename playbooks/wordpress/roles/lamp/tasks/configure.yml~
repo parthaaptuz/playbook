@@ -1,0 +1,8 @@
+---
+
+- name: copy script file
+  copy: src=/home/sainath/amazon-aws/ansible/playbooks/wordpress/roles/lamp/tasks/script.sh dest=/home/ubuntu/ mode=777
+
+- name: configure mysql root password and install lamp server
+  shell: script.sh chdir=~
+
