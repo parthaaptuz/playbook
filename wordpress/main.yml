@@ -5,8 +5,6 @@
   # user: root
   remote_user: ubuntu
   sudo: true
-  become: yes
-  become_method: su
 
   vars:
     - db_name: "{{ lookup('env','DB_NAME') }}"
